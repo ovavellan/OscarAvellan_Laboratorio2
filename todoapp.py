@@ -1,7 +1,4 @@
-#importamos la libreía Markupsafe
-from markupsafe import escape
-
-#importar libreria de Flask
+#importar librerias de Flask y tkinter
 from tkinter import SW
 from flask import Flask,  abort, flash, redirect, request,render_template, url_for
 
@@ -38,5 +35,5 @@ def borrar():
 
 # main del programa 
 if __name__ == '__main__':
-    #debug = true, para reiniciar automaticamente el servidor , tiemo de desarrollo 
+    #debug = true, para reiniciar automaticamente el servidor, tiempo de desarrollo 
     app.run(debug=True)
