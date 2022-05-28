@@ -11,7 +11,7 @@ app= Flask(__name__, template_folder='templates')
 #Definición de arreglo para ingresar los datos
 tareasPendientes = []
 
-#decorador para definir la ruta raíz que llevará a nuestro html página1
+#Primer controlador - decorador para definir la ruta raíz e index 
 @app.route('/' )
 def principal():
     return render_template('pagina1.html', tareasLista = tareasPendientes)
@@ -24,6 +24,13 @@ def enviar():
         correos = request.form['correo']
         prioridades = request.form['prioridad']
         tareasPendientes.append({'tarea': tareas, 'correo': correos, 'prioridad': prioridades })
+        return redirect(url_for('principal'))
+
+#Tercer controlador el cuál borrara todos los elementos que se encuentren almacenados en nuestro arreglo
+@app.route('/borrar', methods=["GET","POST"])
+def borrar():
+    if(request.method == "POST"):
+        tareasPendientes.clear()
         return redirect(url_for('principal'))
 
 # main del programa 
