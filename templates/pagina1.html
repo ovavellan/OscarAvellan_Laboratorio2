@@ -20,10 +20,6 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="p-3 mb-2 bg-dark text-white">Lista de tareas pendientes</h1>
-    </header>
-
     <main>
         <article class="seccion1">
 
@@ -32,14 +28,19 @@
             <form class="formulario" action="/enviar" method="post">
                 <div class="tareas p-3 mb-2 bg-warning text-dark">
                     <div class="campos">
+                        <!-- etiqueta de formulario -->
                         <label for="tarea">Descripción</label>
+                        <!-- Input donde ingresaremos datos -->
                         <input class="entrada" id="tarea" name="tarea" type="text">
 
-
+                        <!-- etiqueta de formulario -->
                         <label for="correo">Correo Electrónico</label>
+                        <!-- Input donde ingresaremos datos -->
                         <input class="entrada" id="correo" name="correo" type="text">
 
+                        <!-- etiqueta de formulario -->
                         <label for="prioridad">Nivel de Prioridad</label>
+                        <!-- Campo que nos permitirá escoger un dato específicos -->
                         <select class="entrada" id="prioridad" name="prioridad">
                             <option value="Baja">Baja</option>
                             <option value="Media">Media</option>
@@ -48,6 +49,7 @@
 
                         <br>
 
+                        <!-- Botón para agregar la tarea pendiente -->
                         <div class="d-grid gap-2 col-6 mx-auto ">
                             <button class="btn btn-primary p-3 mb-2 bg-white text-dark" type="submit">Agregar tarea
                                 Pendiente</button>
@@ -59,6 +61,36 @@
 
         </article>
 
+        <article>
+
+            <!-- Tabla donde se imprimiran las tareas pendientes -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Tarea</th>
+                        <th scope="col">Dirección de Correo Electrónico</th>
+                        <th scope="col">Prioridad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Llamado al arreglo donde se guardaron los datos que ingresamos en el formulario -->
+                    {% for tarea in tareasLista %}
+                    <tr>
+                        <td>{{tarea.tarea}}</td>
+                        <td>{{tarea.correo}}</td>
+                        <td>{{tarea.prioridad}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </article>
+
+        <form action="/borrar" method="post" class="card">
+            <div class="d-grid gap-2 col-6 mx-auto ">
+                <button class="btn btn-primary p-3 mb-2 bg-warning text-dark" type="submit">Borrar Tareas</button>
+            </div>
+        </form>
+    </main>
 </body>
 
 </html>
