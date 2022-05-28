@@ -5,8 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Lista de Tareas Pendientess</title>
 </head>
+
 <body>
+    <header>
+        <h1 class="p-3 mb-2 bg-dark text-white">Lista de tareas pendientes</h1>
+      </header>
     
+      <main>
+        <article class="seccion1">
+    
+          <!-- Formulario -->
+    
+          <form class="formulario" action="/enviar" method="post">
+            <div class="tareas p-3 mb-2 bg-warning text-dark">
+              <div class="campos">
+                <label for="tarea">Descripción</label>
+                <input class="entrada" id="tarea" name="tarea" type="text">
+    
+    
+                <label for="correo">Correo Electrónico</label>
+                <input class="entrada" id="correo" name="correo" type="text">
+    
+                <label for="prioridad">Nivel de Prioridad</label>
+                <select class="entrada" id="prioridad" name="prioridad">
+                  <option value="Baja">Baja</option>
+                  <option value="Media">Media</option>
+                  <option value="Alta">Alta</option>
+                </select>
+    
+                <br>
+    
+                <div class="d-grid gap-2 col-6 mx-auto ">
+                  <button class="btn btn-primary p-3 mb-2 bg-white text-dark" type="submit">Agregar tarea Pendiente</button>
+                </div>
+    
+              </div>
+            </div>
+          </form>
+    
+        </article>
+
 </body>
+
 </html>
