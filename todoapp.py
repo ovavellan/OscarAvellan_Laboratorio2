@@ -1,6 +1,6 @@
 #importar librerias de Flask y tkinter
 from tkinter import SW
-from flask import Flask,  abort, flash, redirect, request,render_template, url_for
+from flask import Flask, redirect, request,render_template, url_for
 
 #Iniciar variable de aplicacion 
 app= Flask(__name__, template_folder='templates')
